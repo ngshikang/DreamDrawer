@@ -1,15 +1,5 @@
 {
-  "originHash" : "aaa5adfb2ce4774e83384f550807c2ccaf98e90ae10a21a4638e126db5cd399e",
   "pins" : [
-    {
-      "identity" : "mobile-sd",
-      "kind" : "remoteSourceControl",
-      "location" : "https://github.com/davidw0311/mobile-sd.git",
-      "state" : {
-        "branch" : "main",
-        "revision" : "386e5433f6cc4f02107f0fea9885a239642190cd"
-      }
-    },
     {
       "identity" : "randomgenerator",
       "kind" : "remoteSourceControl",
@@ -29,5 +19,5 @@
       }
     }
   ],
-  "version" : 3
+  "version" : 2
 }

@@ -23,6 +23,9 @@ extension AttentionVariant {
 
 
 struct ImageGenView: View {
+    
+    @EnvironmentObject var dataModel: DataModel
+    
     @Binding var url: URL!
     @Binding var posPrompt: String
     @Binding var styledPosPrompt: String
@@ -161,11 +164,27 @@ struct ImageGenView: View {
                         image
                             .resizable()
                             .aspectRatio(1, contentMode: .fit)
-//                                .scaledToFit()
+//                                .scaledT	oFit()
 //                                .frame(width: 512, height: 512) // Define frame size to ensure it's square
 ////                                .clipped() // Clip the image to the frame's bounds
                             .padding()
                         ShareLink(item: image, preview: SharePreview("\(posPrompt)", image: image))
+                        Button("Save Image") {
+                            guard let imageURL = NSURL(fileURLWithPath: NSTemporaryDirectory()).appendingPathComponent("TempImage.png") else {
+                                return
+                            }
+
+                            let pngData = imageToShow.pngData();
+                            do {
+                                try pngData?.write(to: imageURL);
+                                dataModel.addItem(Item(url:imageURL, pos:posPrompt))
+                            } catch { }
+                            
+                        }
+                                    .padding()
+                                    .background(Color.blue)
+                                    .foregroundColor(.white)
+                                    .cornerRadius(10)
                     }
                     
                 } else{

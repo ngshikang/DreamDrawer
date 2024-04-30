@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-@main
 struct DreamDrawerApp: App {
     var body: some Scene {
         WindowGroup {

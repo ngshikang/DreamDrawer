@@ -37,7 +37,7 @@ class DiffusionPipeline: ObservableObject {
         } catch {
             print("couldn't init model")
         }
-    
+        
     }
     
     public func generateImage(config: PipelineConfiguration) async -> (CGImage?, TimeInterval){
